@@ -1,0 +1,6 @@
+# Archivos grandes terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+.terraform.lock.hcl
