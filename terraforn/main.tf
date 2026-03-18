@@ -84,9 +84,9 @@ resource "aws_instance" "docker_server" {
 
               cd /home/ec2-user
 
-              git clone https://github.com/Alejandro-Polo/pruebadespliegue.git
+              git clone https://github.com/Alejandro-Polo/examendespliegue26-docker.git
 
-              cd pruebadespliegue
+              cd examendespliegue26-docker
 
               docker-compose up -d --build
 
