@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   database:
-    image: sql:8.0
+    image: mysql:8.0
     container_name: symfony-mysql
     restart: always
     environment:
@@ -13,8 +13,8 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - db-data:/var/lib/mysql
-    
+      - db_data:/var/lib/mysql
+
   backend:
     build: ./backend
     container_name: symfony-backend
@@ -24,11 +24,13 @@ services:
       DATABASE_URL: "mysql://symfony:symfony@database:3306/app_db"
     expose:
       - "8000"
+
   frontend:
     build: ./frontend
     container_name: react-frontend
     depends_on:
-      - database
+      - backend
+
   nginx:
     image: nginx:latest
     container_name: nginx-proxy
